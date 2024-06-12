@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import CustomButton from "./CustomButton";
 
-function Hero(props) {
+function Hero() {
     const handleScroll = () => {
 
     }

@@ -9,6 +9,7 @@ import Image from 'next/image'
 export default function Home() {
     const [allCars, setAllCars] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     // search states
     const [manufacturer, setManufacturer] = useState('');
@@ -35,8 +36,8 @@ export default function Home() {
 
             setAllCars(result);
 
-        } catch (error) {
-            console.log(error);
+        } catch (error: any) {
+            setError(error);
 
         } finally {
             setLoading(false);
@@ -98,7 +99,7 @@ export default function Home() {
                 ) : (
                     <div className={"home__error-container"}>
                         <h2 className={"text-black text-xl font-bold"}>Oops, no results</h2>
-                        <p>{allCars?.message}</p>
+                        <p>{error}</p>
                     </div>
                 )}
 

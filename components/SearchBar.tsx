@@ -6,8 +6,9 @@ import {useRouter} from "next/navigation";
 import SearchManufacturer from "./SearchManufacturer";
 import {SearchButton} from "@/components/index";
 import Image from "next/image";
+import {SearchBarProps} from "@/types";
 
-function SearchBar({setManufacturer, setModel}) {
+function SearchBar({setManufacturer, setModel}: SearchBarProps) {
     const [searchManufacturer, setSearchManufacturer] = useState('');
     const [searchModel, setSearchModel] = useState('');
     const router = useRouter();

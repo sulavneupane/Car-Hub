@@ -4,8 +4,6 @@ import {CustomFilterProps} from "@/types";
 import {Listbox, Transition} from '@headlessui/react';
 import Image from "next/image";
 import {Fragment, useState} from "react";
-import {useRouter} from "next/navigation";
-import {updateSearchParams} from "@/utils";
 
 function CustomFilter({title, options, setFilter}: CustomFilterProps) {
     const [selected, setSelected] = useState(options[0]);
