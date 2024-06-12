@@ -7,8 +7,15 @@ import {Fragment, useState} from "react";
 import {useRouter} from "next/navigation";
 import {updateSearchParams} from "@/utils";
 
-function CustomFilter({title, options, setFilter}: CustomFilterProps) {
+function CustomFilter({title, options}: CustomFilterProps) {
+    const router = useRouter();
     const [selected, setSelected] = useState(options[0]);
+
+    const handleUpdateParams = (e: {title: string, value: string}) => {
+        const newPathName = updateSearchParams(title, e.value.toLowerCase());
+
+        router.push(newPathName, {scroll: false});
+    }
 
     return (
         <div className={"w-fit"}>
@@ -16,7 +23,7 @@ function CustomFilter({title, options, setFilter}: CustomFilterProps) {
                 value={selected}
                 onChange={(e) => {
                     setSelected(e);
-                    setFilter(e.value);
+                    handleUpdateParams(e);
                 }}
             >
                 <div className={"relative w-fit z-10"}>

@@ -67,3 +67,6 @@ export interface ShowMoreProps {
     isNext: boolean;
 }
 
+export interface HomePageProps {
+    searchParams: FilterProps;
+}
